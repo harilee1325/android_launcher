@@ -1,4 +1,4 @@
-package com.harilee.laucher;
+package com.harilee.laucher.Home;
 
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -16,6 +16,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.harilee.laucher.AppInfo;
+import com.harilee.laucher.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,6 +32,8 @@ public class HomeFragment extends Fragment {
     ImageView homeButton;
     @BindView(R.id.app_drawer)
     RecyclerView appDrawer;
+    @BindView(R.id.home_icons_selector)
+    ImageView homeIconsSelector;
     private View view;
     private ArrayList<AppInfo> appsList;
     private DockAdapter addApp;
@@ -36,6 +41,8 @@ public class HomeFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        homeIconsSelector.setVisibility(View.INVISIBLE);
+        appDrawer.setVisibility(View.INVISIBLE);
         new MyThread().execute();
 
     }
@@ -52,9 +59,10 @@ public class HomeFragment extends Fragment {
         view.setOnKeyListener((v, keyCode, event) -> {
             if (keyCode == KeyEvent.KEYCODE_BACK && event.getAction() == KeyEvent.ACTION_UP) {
 
-                    homeButton.setVisibility(View.VISIBLE);
-                    appDrawer.setVisibility(View.INVISIBLE);
-                    return true;
+                homeButton.setVisibility(View.VISIBLE);
+                appDrawer.setVisibility(View.INVISIBLE);
+                homeIconsSelector.setVisibility(View.INVISIBLE);
+                return true;
 
             }
             return false;
@@ -62,14 +70,23 @@ public class HomeFragment extends Fragment {
         return view;
     }
 
-    @OnClick(R.id.home_button)
-    public void onViewClicked() {
-        appDrawer.setVisibility(View.VISIBLE);
-        homeButton.setVisibility(View.INVISIBLE);
-        appDrawer.setHasFixedSize(true);
-        addApp = new DockAdapter(getContext(),appsList);
-        appDrawer.setAdapter(addApp);
+    @OnClick({R.id.home_button, R.id.home_icons_selector})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.home_button:
+                appDrawer.setVisibility(View.VISIBLE);
+                homeButton.setVisibility(View.INVISIBLE);
+                homeIconsSelector.setVisibility(View.VISIBLE);
+                appDrawer.setHasFixedSize(true);
+                addApp = new DockAdapter(getContext(), appsList);
+                appDrawer.setAdapter(addApp);
+                break;
+            case R.id.home_icons_selector:
+
+                break;
+        }
     }
+
 
     public class MyThread extends AsyncTask<Void, Void, String> {
 
@@ -83,7 +100,7 @@ public class HomeFragment extends Fragment {
             i.addCategory(Intent.CATEGORY_LAUNCHER);
 
             List<ResolveInfo> allApps = pm.queryIntentActivities(i, 0);
-            for(ResolveInfo ri:allApps) {
+            for (ResolveInfo ri : allApps) {
                 AppInfo app = new AppInfo();
                 app.label = ri.loadLabel(pm);
                 app.packageName = ri.activityInfo.packageName;
@@ -101,8 +118,9 @@ public class HomeFragment extends Fragment {
         }
 
     }
+
     public void updateStuff() {
-        addApp.notifyItemInserted(addApp.getItemCount()-1);
+        addApp.notifyItemInserted(addApp.getItemCount() - 1);
 
     }
 

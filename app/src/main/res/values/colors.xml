@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">#282828</color>
+    <color name="colorPrimaryDark">#282828</color>
+    <color name="colorAccent">#FFFFFF</color>
+    <color name="green">#a4ce6b</color>
+    <color name="orange">#FE7F00</color>
+    <color name="red">#600308</color>
+    <color name="ash">#7e7c7c</color>
+    <color name="redLignt">#C81F25</color>
+    <color name="greenNew">#a4ce6b</color>
+    <color name="grey">#AAAAAA</color>
+    <color name="window_background">#282828</color>
+    <color name="blue">#2760e4</color>
+    <color name="orange_transparent">#FE7F00</color>
+    <color name="theme_title_gray">#858585</color>
+    <color name="theme_field_text">#B8B6B6</color>
+    <color name="theme_light_black">#5C5C5C</color>
+    <color name="theme_black">#000000</color>
+    <color name="theme_white">#FFFFFF</color>
+    <color name="theme_dim_bg">#802C2F31</color>
+    <color name="theme_red">#C81F25</color>
+    <color name="theme_brown">#EE9856</color>
+    <color name="light_gray">#e0e0e0</color>
+    <color name="purple">#7045BC</color>
+    <color name="aqua">#00FFFF</color>
+    <color name="purple_1">#B651E1</color>
+    <color name="purple_2">#D396ED</color>
+    <color name="background">#dddddd</color>
+
+
 </resources>

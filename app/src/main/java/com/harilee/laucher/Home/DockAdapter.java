@@ -1,9 +1,7 @@
-package com.harilee.laucher;
+package com.harilee.laucher.Home;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +11,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.harilee.laucher.AppInfo;
+import com.harilee.laucher.R;
 
 import java.util.ArrayList;
 import java.util.List;

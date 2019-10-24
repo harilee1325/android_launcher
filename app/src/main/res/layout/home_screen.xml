@@ -5,8 +5,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ImageView
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
         android:id="@+id/home_button"
         android:layout_marginBottom="50dp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -18,9 +18,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/app_drawer"
+        android:layout_margin="15dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
+
+    <ImageView
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_margin="10dp"
+        android:id="@+id/home_icons_selector"
+        android:src="@drawable/plus"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/home_button"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
